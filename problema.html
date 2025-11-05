@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Problema | La realidad no necesita filtro</title>
+  <style>
+    :root {
+      --rojo:#D32F2F;
+      --claro:#f2f5f7;
+      --blanco:#ffffff;
+      --texto:#1e293b;
+      --acento:#F44336;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background-color: var(--claro);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background-color: rgba(211,47,47,0.9); /* Rojo */
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+      z-index: 1000;
+    }
+    header h1 {
+      font-family: 'Bebas Neue', Impact, sans-serif; /* Tipografía impactante */
+      font-size: 22px;
+      color: var(--blanco);
+      font-weight: 600;
+    }
+    nav a {
+      color: var(--blanco);
+      text-decoration: none;
+      margin-left: 22px;
+      font-size: 14px;
+    }
+    nav a:hover { opacity: 0.8; }
+
+    /* SECCIÓN PROBLEMA */
+    section.problema {
+      max-width: 900px;
+      margin: 120px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    section.problema h2 {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 36px;
+      color: var(--rojo);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    section.problema p {
+      font-size: 20px;
+      line-height: 1.8;
+      font-weight: 600;
+      background: #ffebee;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(211,47,47,0.4);
+      color: #333;
+    }
+
+    footer {
+      background-color: var(--rojo);
+      color: var(--blanco);
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>La realidad no necesita filtro</h1>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="problema.html">Problema</a>
+    <a href="impacto.html">Impacto</a>
+    <a href="salud.html">Salud</a>
+    <a href="soluciones.html">Soluciones</a>
+    <a href="consumo.html">Consumo</a>
+  </nav>
+</header>
+
+<section class="problema">
+  <h2>El Problema</h2>
+  <p>
+    Pasar demasiado tiempo frente a pantallas de teléfonos, computadoras y tablets se ha vuelto común, 
+    pero trae graves consecuencias: afecta tu sueño, reduce tu concentración, daña tu postura y puede generar 
+    ansiedad y aislamiento social. ¡Es momento de tomar conciencia y equilibrar la tecnología con la vida real!
+  </p>
+</section>
+
+<footer>
+  © <span id="year"></span> Campaña “La realidad no necesita filtro” — COBATAB Plantel No. 27.
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

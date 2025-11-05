@@ -1,0 +1,55 @@
+<section id="participa" 
+         style="max-width:900px; margin:100px auto; padding:80px 20px; text-align:center;
+                background-image: url('cobachito.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                border-radius:15px;
+                position: relative;
+                color:white;
+                box-shadow: 0 0 30px rgba(0,0,0,0.5);">
+
+  <!-- Fondo semitransparente para que el texto sea legible -->
+  <div style="background: rgba(0,0,0,0.6); padding:30px; border-radius:15px;">
+    <h2 style="font-family:'Bebas Neue', Impact, sans-serif; font-size:36px; color:#FF5252; margin-bottom:20px; text-transform:uppercase;">
+      Participa
+    </h2>
+    <p style="font-size:18px; margin-bottom:30px;">
+      ¡Sube tu foto y forma parte de nuestro mural digital! Nosotros revisaremos cada imagen antes de publicarla.
+    </p>
+
+    <!-- FORMULARIO -->
+    <form id="formParticipa" enctype="multipart/form-data">
+      <input type="file" id="foto" name="foto" accept="image/*" required 
+             style="padding:10px; border-radius:8px; border:2px solid #FF5252; margin-bottom:20px; width:80%;">
+      <br>
+      <button type="submit" style="background:#FF5252; color:white; padding:12px 25px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; box-shadow:0 0 15px #FF5252; transition:0.3s;">
+        Subir Foto
+      </button>
+    </form>
+
+    <p id="mensajeParticipa" style="margin-top:15px; font-weight:bold; color:#39FF14;"></p>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("formParticipa");
+  const mensaje = document.getElementById("mensajeParticipa");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const fileInput = document.getElementById("foto");
+    if(fileInput.files.length === 0){
+      mensaje.style.color = "red";
+      mensaje.textContent = "Por favor selecciona una imagen.";
+      return;
+    }
+
+    // Aquí iría la lógica de subir la foto a tu servidor o enviarla por correo
+    mensaje.style.color = "#39FF14";
+    mensaje.textContent = "¡Gracias! Tu foto ha sido enviada y será revisada antes de aparecer en el mural.";
+
+    form.reset();
+  });
+</script>

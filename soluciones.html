@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Soluciones | La realidad no necesita filtro</title>
+  <style>
+    :root {
+      --azul: #214a6c;
+      --azul-oscuro: #162f45;
+      --claro: #f2f5f7;
+      --blanco: #ffffff;
+      --texto: #1e293b;
+      --acento: #1d9bf0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background-color: var(--claro);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background-color: rgba(22, 47, 69, 0.9);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+      z-index: 1000;
+    }
+    header h1 { font-size: 18px; color: var(--blanco); font-weight: 600; }
+    nav a { color: var(--blanco); text-decoration: none; margin-left: 22px; font-size: 14px; }
+    nav a:hover { opacity: 0.8; }
+    section { max-width: 900px; margin: 100px auto; padding: 0 20px; text-align: center; }
+    h3 { color: var(--azul-oscuro); font-size: 26px; margin-bottom: 16px; }
+    footer { background-color: var(--azul-oscuro); color: var(--blanco); text-align: center; padding: 30px 20px; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>La realidad no necesita filtro</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="problema.html">Problema</a>
+      <a href="impacto.html">Impacto</a>
+      <a href="salud.html">Salud</a>
+      <a href="soluciones.html">Soluciones</a>
+      <a href="consumo.html">Consumo</a>
+    </nav>
+  </header>
+
+  <section>
+    <h3>Soluciones</h3>
+    <p>Fomentar hábitos digitales saludables, como limitar el tiempo frente a las pantallas, desconectarse periódicamente y priorizar actividades físicas y sociales. Promover el consumo responsable de tecnología y la educación ambiental para reducir la huella digital y el impacto ecológico.</p>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Campaña “La realidad no necesita filtro” — COBATAB Plantel No. 27.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

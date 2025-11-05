@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inicio | La realidad no necesita filtro</title>
+  <style>
+    :root {
+      --rojo:#D32F2F;
+      --claro: #f2f5f7;
+      --blanco: #ffffff;
+      --texto: #1e293b;
+      --acento: #F44336;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background-color: var(--claro);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background-color: rgba(211,47,47,0.9); /* Rojo */
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+      z-index: 1000;
+    }
+    header h1 {
+      font-family: 'Bebas Neue', Impact, sans-serif; /* Nueva tipografía */
+      font-size: 22px;
+      color: var(--blanco);
+      font-weight: 600;
+    }
+    nav a {
+      color: var(--blanco);
+      text-decoration: none;
+      margin-left: 22px;
+      font-size: 14px;
+    }
+    nav a:hover { opacity: 0.8; }
+    .btn {
+      background-color: var(--acento);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.55)), url('ecotech.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+    .hero h2 {
+      font-size: 44px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+    }
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 28px;
+      color: #f8f8f8;
+    }
+
+    /* OBJETIVO */
+    section.objetivo {
+      max-width: 900px;
+      margin: 100px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    section.objetivo h3 {
+      color: #D32F2F;
+      font-size: 28px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    section.objetivo p {
+      font-size: 20px;
+      color: #333;
+      line-height: 1.8;
+      font-weight: 600;
+      background: #ffebee;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(211,47,47,0.4);
+    }
+
+    footer {
+      background-color: #D32F2F;
+      color: var(--blanco);
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>La realidad no necesita filtro</h1>
+    <nav>
+      <a href="juegos.html">Juegos</a>
+      <a href="index.html">Inicio</a>
+      <a href="problema.html">Problema</a>
+      <a href="impacto.html">Impacto</a>
+      <a href="salud.html">Salud</a>
+      <a href="soluciones.html">Soluciones</a>
+      <a href="consumo.html">Consumo</a>
+      <a href="participar.html">Participar</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h2>“La realidad no necesita filtro, somos la imagen más real.”</h2>
+      <p>¡Atención! Pasar demasiado tiempo frente a pantallas afecta tu salud, tu descanso y tu bienestar social. ¡Reflexiona y actúa ahora!</p>
+      <a href="#objetivo" class="btn">Conoce más</a>
+    </div>
+  </section>
+
+  <section class="objetivo" id="objetivo">
+    <h3>Objetivo</h3>
+    <p>Queremos que reflexiones sobre el uso excesivo de teléfonos y computadoras. No solo pierdes tiempo valioso, también afecta tu sueño, tu concentración y tu vida social. ¡Desconéctate un momento y vive la realidad!</p>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Campaña “La realidad no necesita filtro” — COBATAB Plantel No. 27.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

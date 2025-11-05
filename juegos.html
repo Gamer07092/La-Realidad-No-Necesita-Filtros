@@ -1,0 +1,124 @@
+<section id="inicio" class="hero" 
+         style="display:flex; flex-direction:column; align-items:center; justify-content:center;
+                background-image: url('luces-neon-blue.jpg');
+                background-size: cover; 
+                background-position: center; 
+                background-repeat: no-repeat;
+                min-height: 100vh; 
+                padding: 40px 20px;">    
+<!-- Título estilo Impact -->
+    <h1 style="font-family:'Impact', sans-serif; font-size:64px; color:#39FF14; text-shadow: 2px 2px 10px black; margin-bottom:20px;">
+      Cloud Games
+    </h1>
+
+    <!-- Botón al inicio -->
+    <a href="index.html"btn" style="background:#0F9D58; color:white; font-size:20px; padding:12px 25px; box-shadow:0 0 15px #0F9D58; margin-bottom:40px;">
+      Inicio
+    </a>
+
+    <!-- MINI-JUEGOS ESTILO GAMING -->
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; max-width:900px;">
+
+      <!-- Sopa de Letras -->
+      <div style="background:#121212; border:2px solid #0F9D58; border-radius:15px; padding:20px; width:320px; text-align:center; color:#0F9D58; box-shadow:0 0 20px #0F9D58;">
+        
+            
+        <h3 style="color:#0F9D58; font-family:'Segoe UI', sans-serif;">Sopa de Letras</h3>
+        <p>Encuentra: TECNOLOGÍA, SALUD, CONSUMO, EMPATÍA, SOSTENIBILIDAD</p>
+        <table id="tablaSopa" style="border-collapse: collapse; margin:auto;"></table>
+        <p id="mensajeSopa" style="color:#39FF14; font-weight:bold; margin-top:10px;"></p>
+        <button onclick="verificarSopa()" class="btn" style="background:#0F9D58; box-shadow:0 0 10px #0F9D58;">Ver resultados</button>
+      </div>
+
+      <!-- Trivia -->
+      <div style="background:#121212; border:2px solid #0F9D58; border-radius:15px; padding:20px; width:320px; text-align:center; color:#0F9D58; box-shadow:0 0 20px #0F9D58;">
+        
+        <h3 style="color:#0F9D58; font-family:'Segoe UI', sans-serif;">Trivia Rápida</h3>
+        <p>Responde correctamente:</p>
+        <div id="pregunta" style="margin-bottom:15px; font-weight:bold; font-size:16px;"></div>
+        <div id="opciones" style="display:flex; flex-direction:column; gap:8px;"></div>
+        <p id="resultadoTrivia" style="font-weight:bold; margin-top:10px; color:#39FF14;"></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // ===== Sopa de Letras =====
+  const palabras = ["TECNOLOGIA","SALUD","CONSUMO","EMPATIA","SOSTENIBILIDAD"];
+  const tamaño = 10;
+  const tabla = document.getElementById("tablaSopa");
+  let letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let grid = Array.from({length:tamaño}, () => Array.from({length:tamaño}, () => letras[Math.floor(Math.random()*26)]));
+
+  palabras.forEach(p => {
+    let fila = Math.floor(Math.random()*tamaño);
+    let col = Math.floor(Math.random()*(tamaño - p.length));
+    for(let i=0;i<p.length;i++) grid[fila][col+i] = p[i];
+  });
+
+  grid.forEach(row => {
+    let tr = document.createElement("tr");
+    row.forEach(cell => {
+      let td = document.createElement("td");
+      td.textContent = cell;
+      td.style.border="1px solid #0F9D58";
+      td.style.width="30px"; td.style.height="30px";
+      td.style.textAlign="center";
+      td.style.cursor="pointer";
+      td.style.userSelect="none";
+      td.style.fontWeight="bold";
+      td.style.color="#C0C0C0";
+      td.style.transition="all 0.2s";
+      td.onclick = ()=> td.style.backgroundColor = td.style.backgroundColor==""?"#0F9D58":"";
+      td.onmouseover = ()=> td.style.transform="scale(1.2)";
+      td.onmouseleave = ()=> td.style.transform="scale(1)";
+      tr.appendChild(td);
+    });
+    tabla.appendChild(tr);
+  });
+
+  function verificarSopa(){
+    let encontrados = Array.from(tabla.querySelectorAll("td")).filter(td=>td.style.backgroundColor=="#0F9D58").length;
+    if(encontrados >= palabras.join("").length*0.6){
+      document.getElementById("mensajeSopa").textContent="¡Bien hecho! Puedes seguir jugando o continuar la campaña.";
+    }else{
+      document.getElementById("mensajeSopa").textContent="Sigue buscando, ¡tú puedes!";
+    }
+  }
+
+  // ===== Trivia =====
+  const preguntas = [
+    {q:"¿Cuál es un efecto negativo del uso excesivo de la tecnología?", o:["Ansiedad y estrés","Mejora de concentración","Aumento de sueño","Todos positivos"], a:0},
+    {q:"¿Qué hábito ayuda a reducir la huella digital?", o:["Reciclar dispositivos","Usar más redes sociales","Ignorar notificaciones","Comprar más gadgets"], a:0},
+    {q:"¿Qué es clave para un consumo responsable?", o:["Sostenibilidad y reutilización","Tirar aparatos viejos","Comprar todo nuevo","Ignorar impacto ambiental"], a:0}
+  ];
+  let indice = 0;
+
+  function mostrarPregunta(){
+    const p = preguntas[indice];
+    document.getElementById("pregunta").textContent = p.q;
+    const divOpc = document.getElementById("opciones");
+    divOpc.innerHTML = "";
+    p.o.forEach((op,i)=>{
+      let btn = document.createElement("button");
+      btn.textContent = op;
+      btn.className = "btn";
+      btn.style.background="#0F9D58";
+      btn.style.boxShadow="0 0 10px #0F9D58";
+      btn.style.color="white";
+      btn.onclick = ()=>{
+        if(i===p.a){
+          document.getElementById("resultadoTrivia").textContent="¡Correcto!";
+        } else{
+          document.getElementById("resultadoTrivia").textContent="Incorrecto, intenta de nuevo.";
+        }
+        indice = (indice+1)%preguntas.length;
+        setTimeout(mostrarPregunta,1000);
+      };
+      divOpc.appendChild(btn);
+    });
+  }
+  mostrarPregunta();
+</script>
