@@ -31,18 +31,60 @@
       padding: 14px 40px;
       z-index: 1000;
     }
-     /* HERO */
-    .hero {
-      height: 100vh;
-      background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.55)), url('Folleto eecológico natural verde.png');
+    <section id="galeria-soluciones" style="padding:100px 20px; text-align:center; background:#111; color:white;">
+  <h2 style="font-family:'Bebas Neue', Impact, sans-serif; font-size:36px; color:#FF5252; margin-bottom:40px; text-transform:uppercase;">
+    Galería de Soluciones
+  </h2>
+
+  <div class="galeria">
+    <div class="img-box" style="background-image:url('Folleto ecológico natural verde.png);"></div>
+    <div class="img-box" style="background-image:url('ecotech.jpg');"></div>
+    <div class="img-box" style="background-image:url('cobachito.jpg');"></div>
+    <div class="img-box" style="background-image:url('1.jpg');"></div>
+  </div>
+
+  <style>
+    .galeria {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .img-box {
+      width: 200px;
+      height: 300px;
       background-size: cover;
       background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      padding: 0 20px;
+      border-radius: 15px;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 20px rgba(255,82,82,0.5);
+      cursor: pointer;
+      position: relative;
+    }
+
+    /* efecto al pasar el mouse o tocar */
+    .img-box:hover {
+      transform: scale(1.2);
+      z-index: 10;
+      box-shadow: 0 0 35px rgba(255,82,82,0.8);
+    }
+
+    /* estilo responsive */
+    @media (max-width: 768px) {
+      .galeria {
+        flex-direction: column;
+      }
+      .img-box {
+        width: 80%;
+        height: 250px;
+      }
+    }
+  </style>
+</section>
       
     header h1 { font-size: 18px; color: var(--blanco); font-weight: 600; }
     nav a { color: var(--blanco); text-decoration: none; margin-left: 22px; font-size: 14px; }
@@ -80,3 +122,4 @@
 </body>
 
 </html>
+
